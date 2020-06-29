@@ -28,7 +28,7 @@ DeviceThreadHandlePool<cublasHandle_t, createCublasHandle, destroyCublasHandle> 
 // See: https://github.com/pytorch/pytorch/pull/22405
 // This thread local unique_ptrs will be destroyed when the thread terminates,
 // releasing its reserved handles back to the pool.
-thread_local std::unique_ptr<decltype(pool)::PoolWindow> myPoolWindow;
+std::unique_ptr<decltype(pool)::PoolWindow> myPoolWindow;
 
 } // namespace
 
